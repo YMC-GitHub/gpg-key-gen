@@ -1295,10 +1295,18 @@ function run_key_del(){
 echo "[task] gpg key del"
 echo "[info] if uid exsits, del."
 gpg_id_get_by_name_and_mail "$GPG_USER_NAME" "$GPG_USER_EMAIL" > /dev/null 2>&1 ;
-[ -z "$GPG_USER_ID" ] && gpg_sec_key_del "$GPG_USER_ID"
+[ "$GPG_USER_ID" ] && gpg_sec_key_del "$GPG_USER_ID"
 echo "$GPG_USER_ID"
 }
 # zero:task:e:gpg key del
+
+function run_key_cpw(){
+echo "[task] gpg key cpw"
+echo "[info] if uid exsits, cpw."
+gpg_id_get_by_name_and_mail "$GPG_USER_NAME" "$GPG_USER_EMAIL" > /dev/null 2>&1 ;
+[ "$GPG_USER_ID" ] && gpg_passphrase_change "$GPG_USER_ID"
+echo "$GPG_USER_ID"
+}
 
 # zero:task:s:list files and keys
 # gpg_sec_key_list
@@ -1323,6 +1331,11 @@ case "$zero_app_subcmd" in
         run_cnf_get
         exit 0
     ;;
+    cpw)
+        run_key_cpw
+        exit 0
+    ;;
+    
 esac
 }
 
@@ -1374,6 +1387,32 @@ case "$zero_app_subcmd" in
 esac
 }
 
+
+# zero:task:s:gpg pri key export
+function run_pubkey_export(){
+echo "[task] gpg pri key export"
+echo "[info] if prikey exsits, skip."
+gpg_id_get_by_name_and_mail "$GPG_USER_NAME" "$GPG_USER_EMAIL" > /dev/null 2>&1 ;
+gpg_pri_key_export "$GPG_USER_ID" "$GPG_PRI_KEY_FILE"
+}
+# zero:task:e:gpg pri key export
+#
+function run_prikey(){
+case "$zero_app_subcmd" in
+    import)
+        gpg_pri_key_import "$GPG_PRI_KEY_FILE"
+        exit 0
+    ;;
+    export)
+        run_pubkey_export
+        exit 0
+    ;;
+esac
+}
+
+
+
+
 # zero:task:s:gpg sec key export
 function run_seckey_export(){
 echo "[task] gpg sec key export"
@@ -1391,6 +1430,10 @@ case "$zero_app_subcmd" in
     ;;
 esac
 }
+
+
+
+
 
 
 # zero:task:s:telling git about your signing key
@@ -1475,6 +1518,10 @@ case "$zero_app_subns" in
     ;;
     pubkey)
         run_pubkey
+        exit 0
+    ;;
+    prikey)
+        run_prikey
         exit 0
     ;;
     seckey)
