@@ -1,6 +1,6 @@
 # gpg-key-gen
 
-generate ggpgog key file .
+generate ggp key file .
 
 ## features
 - [x] gpg key gen
@@ -25,11 +25,11 @@ git clone -b main "$GC_URL"
 - [x] get help (ps:`./index.sh -h`)
 
 ```bash
-# ./gpg.keygen.sh -h
+# ./index.sh -h
 # {{{helpmsg}}}
 ```
 
-- [x] get version (ps:`./gpg.keygen.sh -v`)
+- [x] get version (ps:`./index.sh -v`)
 - [ ] download but not saving script to file and gen key .
 
 ```bash
@@ -44,8 +44,15 @@ echo $url
 # demo:
 ./index.sh var lst -n="zero" -e="zero@gmail.com" --nc="ymc-github" -p="password"
 ./index.sh key cnf -n="zero" -e="zero@gmail.com" --nc="ymc-github" -p="password"
-./index.sh key gen -n="zero" -e="zero@gmail.com" --nc="ymc-github" -p="password"
+./index.sh key add -n="zero" -e="zero@gmail.com" --nc="ymc-github" -p="password"
 ./index.sh var lst -fname="hello"
+
+./index.sh key cnf -p=""
+./index.sh key lst -p=""
+./index.sh uid lst -p=""
+./index.sh key del -p=""
+./index.sh key add -p=""
+
 ```
 
 
