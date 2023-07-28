@@ -1,0 +1,4 @@
+usage: {ns} var lst [option]
+options:
+    --value -- out var name and value
+    -h,--help -- info help usage

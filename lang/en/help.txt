@@ -1,0 +1,47 @@
+usage: 
+{ns} [command] [option]
+{ns} <subns> <command> [option]
+
+demo:
+{ns} var lst
+{ns} key cnf
+{ns} key gen
+{ns} key lst
+{ns} key del
+{ns} uid lst
+{ns} pubkey export
+{ns} pubkey clip
+{ns} seckey export
+{ns} tel git
+{ns} file encode
+{ns} file decode
+{ns} file sign
+{ns} file checksign
+
+command:
+    version -- output cli version
+    help -- output usage
+
+Supported algorithms:
+Pubkey: RSA, ELG, DSA, ECDH, ECDSA, EDDSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB, BZIP2
+
+options:
+    -e,--email <value> -- set email. ps: x@163.com
+    -n,--name <value> -- set name. ps:yemiancheng
+    -p,--passphrase <value> -- set passphrase. ps:yemiancheng123
+    --nc <value> -- set user note. ps: ymc-github
+    --keyexp <value> -- set exp ps:1y
+    --keypath <value> -- set key-path. ps: ~/.gnupg
+    --keytype  <value> -- set key-type. ps: RSA
+    --keylength  <value> -- set key-length. ps: 2048
+    --keyserver  <value> -- set pubkey-server. ps: hkp://ipv4.pool.sks-keyservers.net
+    --fname  <value> -- set file name to encode/decode/sign/checksign . ps: README
+    --fsuffix  <value> -- set file suffix to encode/decode/sign/checksign . ps: md
+    --ftype  <value> -- set file type to sign/checksign . ps: txt
+    --dryrun -- with dry run mode
+    -h,--help -- info help usage
+    -v,--version -- info version
