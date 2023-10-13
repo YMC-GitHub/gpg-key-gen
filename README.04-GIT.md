@@ -69,6 +69,7 @@ git add LICENSE ; git commit -m "build(core): add license";
 ```bash
 git add README.md ; git commit -m "docs(core): add readme";
 git add README.md ; git commit -m "docs(core): put readme to update usage";
+git add README.md ; git commit -m "docs(core): put readme to update desc and author info";
 git add index.sh ; git commit -m "feat(core): rename util func name";
 ```
 
