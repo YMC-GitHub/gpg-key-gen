@@ -198,14 +198,14 @@ git add README.04-GIT.md ; git commit -m "docs(core): put readme to note git for
 
 ```
 
-- [ ] use readme.05-ssh.md file from remote file
-```bash
-curl -sfLO https://ghproxy.com/https://raw.githubusercontent.com/ymc-github/smallgo/main/README.05-SSH.md
-```
-
-- [ ] add docs about using ssh in github i noted
+- [x] add docs about using ssh in github i noted
 ```bash
 git add README.05-SSH.md ; git commit -m "docs(core): add readme to note ssh";
+```
+
+- [x] add docs about using ssh in github i noted
+```bash
+git add README.06-GPG.md ; git commit -m "docs(core): add readme to note gpg";
 ```
 
 - [x] set pull action for this repo
@@ -246,3 +246,12 @@ git add requirements.txt ; git commit -m "build(core): add requirements nodes";
 git add __init__.py YMC_Node_Suite.py; git commit -m "feat(core): add custom nodes";
 ```
 
+- [ ] use readme.05-ssh.md file from remote file
+```bash
+curl -sfLO https://ghproxy.com/https://raw.githubusercontent.com/ymc-github/smallgo/main/README.05-SSH.md
+```
+
+- [ ] use readme.05-gpg.md file from remote file
+```bash
+# curl -sfLO https://ghproxy.com/https://raw.githubusercontent.com/ymc-github/smallgo/main/README.05-GPG.md
+```
