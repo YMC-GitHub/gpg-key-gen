@@ -176,7 +176,7 @@ function zero_str_join(){
 }
 
 
-function zero_app_use_opt(){
+function zero_app_getopt_opts_def(){
     o=$(echo $1 | sed -E "s/ -- +.*//g")
     o=$(echo $o | sed -E "s/^ +//g")
     o=$(echo $o | sed -E "s/-+//g")
@@ -223,14 +223,14 @@ function zero_app_use_opt(){
     fi
 
 }
-# zero_app_use_opt "-h,--help -- info help usage"
-# zero_app_use_opt '-v,--version -- info version'
-# zero_app_use_opt "-p,--preset [value] -- use some preset"
-# zero_app_use_opt "--hubs <value> -- set hub url list. multi one will split with , char"
-# zero_app_use_opt "--eml <value> -- set email list. multi one will split with , char"
+# zero_app_getopt_opts_def "-h,--help -- info help usage"
+# zero_app_getopt_opts_def '-v,--version -- info version'
+# zero_app_getopt_opts_def "-p,--preset [value] -- use some preset"
+# zero_app_getopt_opts_def "--hubs <value> -- set hub url list. multi one will split with , char"
+# zero_app_getopt_opts_def "--eml <value> -- set email list. multi one will split with , char"
 
 
-function zero_app_use_opts(){
+function zero_app_getopt_opts_use(){
 
 # zero_const_space_md5=$2
 
@@ -247,7 +247,7 @@ for line in ${array[@]}
 do
 if [ "$line" ]; then
     vline=`echo "$line" | sed "s/$space_md5/$space/g" `
-    zero_app_use_opt "$vline"
+    zero_app_getopt_opts_def "$vline"
 
     #  echo "$ld:$vline"
     # # echo "$ld:$line"
@@ -270,11 +270,11 @@ done
 # --eml <value> -- set email list. multi one will split with , char
 # "
 
-# zero_app_use_opts "$options" "$zero_const_space_md5" " "
+# zero_app_getopt_opts_use "$options" "$zero_const_space_md5" " "
 
 
 
-function zero_app_get_opts(){
+function zero_app_getopt_opts_get(){
 
 # zero_const_space_md5=$2
 
@@ -309,9 +309,9 @@ if [ "$line" ]; then
 fi
 done 
 }
-# options=`zero_app_get_opts "$zero_app_msg_usage" "$zero_const_space_md5" " "`
+# options=`zero_app_getopt_opts_get "$zero_app_msg_usage" "$zero_const_space_md5" " "`
 
-function zero_app_out_opts(){
+function zero_app_getopt_opts_out(){
     echo "args:(getopt)"
     # echo $zero_app_sarg
     # echo $zero_app_larg
@@ -384,13 +384,13 @@ esac
 
 
 #zero:task:s:define-cli-option
-options=`zero_app_get_opts "$zero_app_msg_usage" "$zero_const_space_md5" " "`
+options=`zero_app_getopt_opts_get "$zero_app_msg_usage" "$zero_const_space_md5" " "`
 # echo "$options"
 #zero:task:e:define-cli-option
 
 #zero:task:s:gen-getopt-option
-zero_app_use_opts "$options" "$zero_const_space_md5" " "
-# zero_app_out_opts
+zero_app_getopt_opts_use "$options" "$zero_const_space_md5" " "
+# zero_app_getopt_opts_out
 # exit 0
 #zero:task:e:gen-getopt-option
 # zero:task:s:extraxt-subns-and-subcm
