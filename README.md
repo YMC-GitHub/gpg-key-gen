@@ -1,6 +1,6 @@
 # gpg-key-gen
 
-generate ggp key file .
+scripts to generate gpg key
 
 ## features
 - [x] gpg key gen
@@ -89,7 +89,7 @@ echo $url
 
 name|email|desciption
 :--|:--|:--
-yemiancheng|<ymc.github@gmail.com>||
+yemiancheng|<ymc.github@gmail.com>|the code author|
 
 ## License
 MIT
